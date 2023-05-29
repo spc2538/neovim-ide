@@ -1,0 +1,94 @@
+vim.cmd([[
+  autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+]])
+vim.o.scrolloff = 9999
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.number = true
+vim.o.autoindent = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.smarttab = true
+vim.o.softtabstop = 4
+vim.o.mouse = "a"
+vim.o.ruler = false
+vim.api.nvim_set_keymap('n', '<F12>', ':bn<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F10>', ':bp<CR>', {noremap = true})
+vim.o.completeopt = vim.o.completeopt:gsub('preview,', '')
+vim.o.clipboard = "unnamedplus"
+vim.o.breakindent = true
+vim.o.linebreak = true
+vim.cmd("command! -nargs=0 W w !sudo tee % >/dev/null")
+vim.cmd("syntax on")
+vim.o.termguicolors = true
+vim.api.nvim_set_keymap('v', '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', {noremap = true})
+vim.cmd("filetype on")
+vim.o.hidden = true
+
+require('packer').startup(function()
+  use {
+    'stevearc/oil.nvim',
+    config = function() require('oil').setup() end
+  }
+  use 'https://github.com/junegunn/fzf.vim'
+  use 'https://github.com/NLKNguyen/papercolor-theme'
+  use 'https://github.com/jiangmiao/auto-pairs'
+  use 'http://github.com/tpope/vim-surround'
+  use 'https://github.com/preservim/nerdtree'
+  use 'https://github.com/tpope/vim-commentary'
+  use 'https://github.com/ap/vim-css-color'
+  use 'https://github.com/rafi/awesome-vim-colorschemes'
+  use 'https://github.com/neoclide/coc.nvim'
+  use 'https://github.com/tc50cal/vim-terminal'
+  use 'https://github.com/preservim/tagbar'
+  use 'https://github.com/lewis6991/gitsigns.nvim'
+  use 'https://github.com/KenN7/vim-arsync'
+  use 'https://github.com/tanvirtin/monokai.nvim'
+  use 'https://github.com/mattn/emmet-vim'
+  use 'https://github.com/shaunsingh/solarized.nvim'
+  use 'dart-lang/dart-vim-plugin'
+  use 'thosakwe/vim-flutter'
+  use 'natebosch/vim-lsc'
+  use 'natebosch/vim-lsc-dart'
+end)
+
+vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeFocus<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTree<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-t>', ':NERDTreeToggle<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-l>', ':call CocActionAsync("jumpDefinition")<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F8>', ':TagbarToggle<CR>', {noremap = true})
+
+vim.g.NERDTreeDirArrowExpandable = "+"
+vim.g.NERDTreeDirArrowCollapsible = "~"
+-- vim.g.user_emmet_leader_key = '<C-Z>'
+vim.g.user_emmet_install_global = 0
+vim.cmd("autocmd FileType html,css EmmetInstall")
+
+vim.g.airline_powerline_fonts = 1
+vim.g.airline_symbols = vim.g.airline_symbols or {}
+vim.g.airline_left_sep = ''
+vim.g.airline_left_alt_sep = ''
+vim.g.airline_right_sep = ''
+vim.g.airline_right_alt_sep = ''
+vim.g.airline_symbols.branch = ''
+vim.g.airline_symbols.readonly = ''
+vim.g.airline_symbols.linenr = ''
+
+vim.g.coc_disable_startup_warning = 1
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? coc#_select_confirm() : "<Tab>"', {expr = true})
+
+vim.g.markdown_fenced_languages = {'html', 'python', 'lua', 'vim', 'typescript', 'javascript', 'sh', 'rust', 'conf', 'c', 'cpp'}
+vim.o.termguicolors = true
+vim.o.background = "light"
+require("oil").setup()
+vim.cmd("colorscheme lightning")
+
+-- Uncomment the line below to use a different colorscheme
+-- vim.cmd("colorscheme onehalfdark")
+-- Uncomment the lines below to list your favorite colorschemes
+-- vim.cmd("colorscheme lightning")
+-- vim.cmd("colorscheme focuspoint")
+-- vim.cmd("colorscheme onehalflight")
+
