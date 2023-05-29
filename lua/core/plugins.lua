@@ -26,6 +26,12 @@ return require('packer').startup(function(use)
   use 'https://github.com/tc50cal/vim-terminal'
   use 'https://github.com/preservim/tagbar'
   use 'romgrk/barbar.nvim'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+  -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use "williamboman/mason.nvim"
   if packer_bootstrap then
     require('packer').sync()
   end
