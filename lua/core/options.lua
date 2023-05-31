@@ -26,7 +26,7 @@ vim.api.nvim_set_keymap('v', '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', {nor
 vim.cmd("filetype on")
 vim.o.hidden = true
 
-vim.o.scrolloff = 7
+vim.o.scrolloff = 5
 vim.o.clipboard = "unnamedplus"
 
 vim.o.background = "dark"

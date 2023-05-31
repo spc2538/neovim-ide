@@ -10,6 +10,9 @@ local ensure_packer = function()
 end
 local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
+  -- use 'https://github.com/neoclide/coc.nvim'
+  use { 'junegunn/fzf', run = ":call fzf#install()" }
+  use { 'junegunn/fzf.vim' }
   use 'nvim-treesitter/nvim-treesitter'
   use {
     'nvim-lualine/lualine.nvim',
@@ -28,10 +31,18 @@ return require('packer').startup(function(use)
   use 'romgrk/barbar.nvim'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-  -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use "williamboman/mason.nvim"
+  use "neovim/nvim-lspconfig"
+  use "williamboman/mason-lspconfig.nvim"
+  use "glepnir/lspsaga.nvim"
+  -- completion vscode-like
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
   if packer_bootstrap then
     require('packer').sync()
   end

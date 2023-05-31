@@ -1,6 +1,21 @@
 # Neovim IDE
 
-## Install
+## APT
+
+```sh
+sudo apt install xclip
+sudo apt install fzf
+sudo apt install ripgrep
+mkdir -p ~/.local/share/fonts
+wget -O ~/.local/share/fonts/nerd.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/3270.zip
+tar xf ~/.local/share/fonts/nerd.zip -C ~/.local/share/fonts
+wget -O ~/opt/nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
+tar xf ~/opt/nvim.tar.gz -C ~/opt
+
+echo 'export PATH="$PATH:$HOME/opt/nvim-linux64/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+```
 
 ```sh
 mkdir -p ~/.local/share/fonts
