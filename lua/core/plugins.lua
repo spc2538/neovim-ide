@@ -11,6 +11,7 @@ end
 local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- use 'https://github.com/neoclide/coc.nvim'
+  use 'https://github.com/projekt0n/github-nvim-theme'
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
   use 'nvim-treesitter/nvim-treesitter'

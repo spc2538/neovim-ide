@@ -1,3 +1,9 @@
+vim.o.guicursor = "n-v-c-i:block"
+
+vim.opt.swapfile = false
+
+vim.g.NERDTreeMinimalUI = 1
+vim.g.NERDTreeDirArrows = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -5,7 +11,7 @@ vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
 vim.opt.autowrite = true
-vim.opt.cursorline = true
+vim .opt.cursorline = true
 vim.opt.autoread = true
 
 vim.o.incsearch = true
@@ -26,13 +32,19 @@ vim.api.nvim_set_keymap('v', '//', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', {nor
 vim.cmd("filetype on")
 vim.o.hidden = true
 
-vim.o.scrolloff = 5
+-- vim.o.scrolloff = 9999
+vim.o.scrolloff = 4
 vim.o.clipboard = "unnamedplus"
 
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
-
+-- vim.o.background = "dark"
+-- vim.o.background = "light"
+vim.o.background = "light"
 -- vim.cmd("colorscheme onedark_dark")
+-- vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme github_light]])
+-- vim.cmd([[colorscheme github_dark_high_contrast]])
+vim.cmd([[colorscheme github_light]])
+
 
 vim.g.markdown_fenced_languages = {'html', 'python', 'lua', 'vim', 'typescript', 'javascript', 'sh', 'rust', 'conf', 'c', 'cpp'}
 
@@ -41,3 +53,5 @@ vim.cmd([[
   autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 ]])
+
+
