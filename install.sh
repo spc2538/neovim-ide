@@ -3,7 +3,7 @@
 log_file="logfile.log"
 apt_updated=false
 dependencies_packages=("curl" "wget" "git")
-core_packages=("xclip" "fzf" "ripgrep", "exuberant-ctags", "rsync")
+core_packages=("xclip" "fzf" "ripgrep" "exuberant-ctags" "rsync")
 
 create_log_file() {
   local message="Installing neovim Debian and Ubuntu"
