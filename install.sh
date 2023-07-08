@@ -3,7 +3,7 @@
 log_file="logfile.log"
 apt_updated=false
 dependencies_packages=("curl" "wget" "git")
-core_packages=("xclip" "fzf" "ripgrep")
+core_packages=("xclip" "fzf" "ripgrep", "exuberant-ctags", "rsync")
 
 create_log_file() {
   local message="Installing neovim Debian and Ubuntu"
@@ -78,13 +78,29 @@ check_and_install_node() {
 }
 
 check_and_install_neovim() {
-  # function that checks out if neovim command exists
+  local neovim_command="nvim"
+
+  if command_exists "$neovim_command"; then
+    log_message "Neovim already available."
+    return
+  fi
+
+  log_message "Installing neovim"
+  mkdir -p ~/opt
+  mkdir -p ~/.local/share/fonts
+  wget -O ~/.local/share/fonts/nerd.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/3270.zip
+  tar xf ~/.local/share/fonts/nerd.zip -C ~/.local/share/fonts
+  wget -O ~/opt/nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.9.0/nvim-linux64.tar.gz
+  tar xf ~/opt/nvim.tar.gz -C ~/opt
+  echo 'export PATH="$PATH:$HOME/opt/nvim-linux64/bin"' >> ~/.bashrc
+  source ~/.bashrc
+  mkdir -p ~/.config/nvim/
+  git clone https://github.com/spc2538/neovim-ide.git ~/.config/nvim
 }
 
 
 create_log_file
 check_and_install_node
-check_and_install_neovim
 log_message "Installing list of packages"
 
 for package in "${dependencies_packages[@]}"; do
@@ -93,3 +109,6 @@ done
 for package in "${core_packages[@]}"; do
   check_and_install_package "$package"
 done
+
+
+check_and_install_neovim

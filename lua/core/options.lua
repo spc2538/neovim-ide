@@ -38,12 +38,12 @@ vim.o.clipboard = "unnamedplus"
 
 -- vim.o.background = "dark"
 -- vim.o.background = "light"
-vim.o.background = "light"
+vim.o.background = "dark"
 -- vim.cmd("colorscheme onedark_dark")
 -- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme github_light]])
 -- vim.cmd([[colorscheme github_dark_high_contrast]])
-vim.cmd([[colorscheme github_light]])
+-- vim.cmd([[colorscheme github_light]])
 
 
 vim.g.markdown_fenced_languages = {'html', 'python', 'lua', 'vim', 'typescript', 'javascript', 'sh', 'rust', 'conf', 'c', 'cpp'}
@@ -52,6 +52,7 @@ vim.cmd([[
   autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 ]])
 
 
