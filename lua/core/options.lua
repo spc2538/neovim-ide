@@ -33,7 +33,7 @@ vim.cmd("filetype on")
 vim.o.hidden = true
 
 -- vim.o.scrolloff = 9999
-vim.o.scrolloff = 4
+vim.o.scrolloff = 3
 vim.o.clipboard = "unnamedplus"
 
 -- vim.o.background = "dark"
